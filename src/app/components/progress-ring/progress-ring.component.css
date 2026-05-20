@@ -1,0 +1,30 @@
+:host {
+  display: block;
+  position: relative;
+  aspect-ratio: 1;
+}
+
+svg {
+  transform: rotate(-90deg);
+}
+
+.track {
+  stroke: #2d3748;
+}
+
+.bar {
+  filter: drop-shadow(0 0 2px currentColor);
+  stroke: currentColor;
+}
+
+span {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 0 2px var(--color-neutral));
+  inset: 0;
+  color: var(--color-neutral);
+  font-size: var(--font-size-md);
+  font-family: var(--font-mono);
+}

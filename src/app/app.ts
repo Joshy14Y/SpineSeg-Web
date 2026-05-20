@@ -1,11 +1,12 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { InferencePage } from '@pages/inference/inference.page';
+import { AngleIndicatorComponent } from "@components/angle-indicator/angle-indicator.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [InferencePage, AngleIndicatorComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
   protected readonly title = signal('SpineSeg');

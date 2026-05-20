@@ -1,0 +1,27 @@
+:host {
+  display: block;
+}
+
+line {
+  stroke-linecap: round;
+  stroke-width: 4;
+}
+
+.base {
+  stroke: var(--text-secondary);
+}
+
+.angle {
+  stroke: currentColor;
+  stroke-linecap: round;
+}
+
+path {
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+circle {
+  fill: currentColor;
+}

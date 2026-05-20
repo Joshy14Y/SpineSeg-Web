@@ -1,0 +1,16 @@
+<canvas
+  #displayCanvas
+  [hidden]="!hasData()"
+  (mousemove)="onMouseMove($event)"
+  (mouseleave)="onMouseLeave()"
+>
+</canvas>
+@if (!hasData()) {
+  <strong>waiting for upload...</strong>
+  <small>got spine?</small>
+}
+@if (hoveredId()) {
+  <div class="tooltip" [style.left.px]="mouseX()" [style.top.px]="mouseY()">
+    <span>{{ hoveredLabel() }}</span>
+  </div>
+}

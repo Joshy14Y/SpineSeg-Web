@@ -1,0 +1,110 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border: var(--border-sm) solid var(--border-primary);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-secondary);
+  padding: 10px;
+  min-height: 0;
+  overflow: hidden;
+  min-width: 260px;
+}
+
+:host(.normal) {
+  color: var(--color-positive);
+}
+:host(.mild) {
+  color: var(--color-neutral);
+}
+:host(.moderate) {
+  color: var(--color-warning);
+}
+:host(.severe) {
+  color: var(--color-danger);
+}
+
+.angle-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.angle-information {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 3px;
+}
+
+.angle-information strong {
+  color: currentColor;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-4xl);
+  line-height: 1;
+}
+
+.angle-display small {
+  color: var(--text-primary);
+  font: var(--font-mono);
+  font-weight: var(--font-weight-semi-bold);
+  font-size: var(--font-size-sm);
+  text-transform: capitalize;
+}
+
+.severity-scale {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.threshold {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.threshold .tick {
+  border-radius: var(--radius-sm);
+  background-color: var(--border-primary);
+  width: 100%;
+  height: 2px;
+}
+
+.threshold.active .tick {
+  background-color: currentColor;
+  box-shadow: 0 0 6px 1px currentColor;
+}
+
+.threshold small {
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-semi-bold);
+  font-size: var(--font-size-sm);
+  text-transform: lowercase;
+}
+
+.threshold.active small {
+  color: var(--color-accent);
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty strong {
+  color: var(--text-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-md);
+}
+
+.empty small {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-mono);
+}

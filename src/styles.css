@@ -1,3 +1,106 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg-primary: #0a0c0f;
+  --bg-secondary: #0d0f12;
+  --bg-hover: #1c1f26;
+  --border-primary: #232730;
 
-@import "tailwindcss";
+  --text-primary: #9aa0aa;
+  --text-secondary: #6a6f7a;
+
+  --color-accent: #e6e8ec;
+  --color-warning: #f5a524;
+  --color-positive: #06b6d4;
+  --color-neutral: #e6e8ec;;
+  --color-danger: #ef4444;
+
+  --font-primary: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --font-size-xs: 0.5rem;
+  --font-size-sm: 0.75rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 1.75rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.25rem;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --border-sm: 1px;
+}
+
+html {
+  font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: var(--border-primary);
+  padding: 0;
+  line-height: inherit;
+}
+
+body {
+  background-color: var(--bg-primary);
+  line-height: 1.5;
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+.neutral {
+  color: var(--color-neutral);
+}
+
+.positive {
+  color: var(--color-positive);
+}
+
+.warning {
+  color: var(--color-warning);
+}
+
+.primary {
+  color: var(--text-primary);
+}
+
+.secondary {
+  color: var(--text-secondary);
+}

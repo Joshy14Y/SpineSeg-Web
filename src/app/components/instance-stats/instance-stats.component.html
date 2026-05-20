@@ -1,0 +1,15 @@
+@if (hasData()) {
+  <ol>
+    @for (instance of instances(); track instance.uuid) {
+      <li [class]="getStatus(instance.confidence)">
+        <span class="label-text">{{ getLabel(instance.class_id) }}</span>
+        <span class="confidence-text">{{ instance.confidence | percent }}</span>
+      </li>
+    }
+  </ol>
+} @else {
+  <div class="empty-state">
+    <strong>no data</strong>
+    <small>spine not found</small>
+  </div>
+}
