@@ -1,0 +1,20 @@
+<input
+  #fileInput
+  type="file"
+  accept=".png,.jpg"
+  hidden
+  (change)="onFileSelected($event)"
+/>
+@if (previewUrl()) {
+  <img [src]="previewUrl()" alt="X-ray preview" />
+} @else {
+  <ng-icon name="octUpload" />
+  <div class="drop-labels">
+    <strong>drop x-ray here</strong>
+    <small>or click to browse</small>
+  </div>
+  <div class="format-badges">
+    <span>.png</span>
+    <span>.jpg</span>
+  </div>
+}

@@ -1,0 +1,31 @@
+@if (hasData()) {
+  <div class="confidence">
+    <div class="avg">
+      <strong>{{ avg() | percent: '1.0-1' }}</strong>
+      <small>avg</small>
+    </div>
+    <div class="flagged">
+      <strong [class]="status()">{{ flagged() }} flagged</strong>
+      <small>< {{ threshold() | percent }}</small>
+    </div>
+  </div>
+  <div class="segment-container">
+    @for (segment of segments(); track $index) {
+      <div
+        class="segment"
+        [style.height.%]="getSegHeight(segment.confidence)"
+        [class]="getSegStatus(segment.confidence)"
+      ></div>
+    }
+  </div>
+  <div class="vertebrae-range">
+    <small>T1</small>
+    <small class="summary">{{ total() }}/17 vertebrae detected</small>
+    <small>L5</small>
+  </div>
+} @else {
+  <div class="empty-state">
+    <strong>no data</strong>
+    <small>numbers need bones</small>
+  </div>
+}

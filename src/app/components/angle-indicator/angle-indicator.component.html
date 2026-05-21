@@ -1,0 +1,18 @@
+<svg [attr.viewBox]="viewBox">
+  <path [attr.d]="arc()" class="arc" />
+  <line
+    [attr.x1]="originX"
+    [attr.y1]="originY"
+    [attr.x2]="lineEndX"
+    [attr.y2]="originY"
+    class="base"
+  />
+  <line
+    [attr.x1]="originX"
+    [attr.y1]="originY"
+    [attr.x2]="endX()"
+    [attr.y2]="endY()"
+    class="angle"
+  />
+  <circle [attr.cx]="originX" [attr.cy]="originY" r="5" class="origin" />
+</svg>

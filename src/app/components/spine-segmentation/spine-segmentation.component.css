@@ -1,0 +1,52 @@
+:host {
+  display: flex;
+  position: relative;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: var(--border-sm) solid var(--border-primary);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-secondary);
+  min-height: 0;
+  overflow: hidden;
+}
+
+canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+radial-pulse {
+  margin: 15px;
+}
+
+strong {
+  color: var(--text-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-md);
+}
+
+small {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-mono);
+}
+
+.tooltip {
+  position: absolute;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  background-color: var(--bg-hover);
+  padding: 5px 10px;
+  pointer-events: none;
+}
+
+.tooltip span {
+  color: var(--color-accent);
+  font-weight: var(--font-weight-semi-bold);
+  font-size: var(--font-size-md);
+  letter-spacing: 1px;
+}

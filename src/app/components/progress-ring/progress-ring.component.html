@@ -1,0 +1,22 @@
+<svg [attr.width]="size()" [attr.height]="size()" [attr.viewBox]="viewBox()">
+  <circle
+    class="track"
+    [attr.r]="r()"
+    [attr.cx]="c()"
+    [attr.cy]="c()"
+    fill="transparent"
+    stroke-width="3"
+  />
+  <circle
+    class="bar"
+    [attr.r]="r()"
+    [attr.cx]="c()"
+    [attr.cy]="c()"
+    fill="transparent"
+    stroke-width="3"
+    stroke-linecap="round"
+    [attr.stroke-dasharray]="circumference()"
+    [attr.stroke-dashoffset]="offset()"
+  />
+</svg>
+<span>{{ value() | percent }}</span>
