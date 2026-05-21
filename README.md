@@ -1,49 +1,99 @@
-# SpineSeg
+# SpineSeg — Automatic Vertebrae Segmentation in Radiographies using Deep Learning
 
-**SpineSeg** is a web-based medical imaging application for automated spine segmentation and scoliosis diagnosis. It processes X-ray images through a deep learning inference pipeline and visualizes segmentation results with per-segment diagnostics.
+![App Status](https://img.shields.io/website?url=https://spineseg-a1a25.web.app&label=App)
+![Angular](https://img.shields.io/badge/Angular-21-DD0031?logo=angular&logoColor=white)
+![Firebase](https://img.shields.io/badge/deployed-Firebase-FFCA28?logo=firebase&logoColor=black)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-Live: [https://spineseg-a1a25.web.app](https://spineseg-a1a25.web.app)
+**SpineSeg** is a web-based medical imaging application for automated spine segmentation and scoliosis screening. It allows clinicians and researchers to upload a spinal X-ray, run deep learning inference against the SpineSeg API, and inspect the segmentation results broken down by vertebral segment — including a Cobb angle estimation and per-band signal statistics.
 
-## Overview
+**Team:** Joshua Sancho, Andrés Castellano, Camilo Albarracín, Nicolás Sánchez, Sebastián Morelli
 
-SpineSeg combines a U-Net based segmentation model with a clinical-grade Angular frontend. The app allows users to upload a spinal X-ray, run inference against a remote API, and inspect the segmentation results broken down by vertebral segment — including a scoliosis diagnosis and per-band signal statistics.
+---
+
+## Relevant Links
+
+| Resource | URL |
+|---|---|
+| 🌐 Frontend app | https://spineseg-a1a25.web.app |
+| 🔌 API (live) | https://spineseg-api-production.up.railway.app |
+| 📖 API docs | https://spineseg-api-production.up.railway.app/docs |
+| 🔧 Backend repo | https://github.com/Joshy14Y/SpineSeg-API |
+
+---
+
+## Architecture
+
+This is the **frontend** repository. The full system is split across three independent repos:
+
+- **Training** — data pipeline, model training, and evaluation
+- **Backend** — FastAPI inference service
+- **Frontend** ← you are here — Angular web interface
+
+---
 
 ## Stack
 
-| Layer    | Technology                                       |
-| -------- | ------------------------------------------------ |
-| Frontend | Angular 21, TypeScript                           |
-| Styling  | CSS custom properties, no framework              |
-| State    | Angular Signals (`signal`, `computed`, `effect`) |
-| Build    | Angular CLI, pnpm                                |
-| Deploy   | Firebase Hosting                                 |
-| API      | FastAPI on Railway                               |
-| Model    | U-Net (ONNX)                                     |
+| Layer | Technology |
+|---|---|
+| Frontend | Angular 21, TypeScript |
+| Styling | CSS custom properties, no framework |
+| State | Angular Signals (`signal`, `computed`, `effect`) |
+| Build | Angular CLI, pnpm |
+| Deploy | Firebase Hosting |
+| API | FastAPI on Railway |
+| Model | U-Net (ONNX) |
 
-## Features
+---
 
-- Upload spinal X-ray images
-- Client-side color mask rendering from NxM class ID matrix via offscreen canvas
-- Per-segment list with visual accent indicators
-- Diagnosis card with scoliosis assessment
-- Stats card with signal band statistics
-- Radial pulse indicator for inference status
-- Responsive clinical UI with dark theme and custom design tokens
+## How to use it
 
-## Getting Started
+The interface consists of a single screen:
 
-### Prerequisites
+1. **Load an image** — click the upload container in the upper left to select a grayscale spine X-ray from your device.
+2. **Run inference** — click the **Inference** button to send the image to the API.
+3. **Inspect results** — once inference completes, the screen displays:
+   - The annotated X-ray with segmentation overlay and Cobb angle lines
+   - A color-coded vertebra mask rendered client-side
+   - A diagnosis card with scoliosis assessment based on the Cobb angle
+   - A per-segment list with visual accent indicators and confidence scores
+   - A stats card with signal band statistics
 
-- Node.js 20+
-- pnpm
+---
 
-### Install dependencies
+## Dependencies
+
+Dependencies are managed via `pnpm` and listed in `package.json`. Install them as described below.
+
+---
+
+## Installation
 
 ```bash
+git clone https://github.com/Joshy14Y/SpineSeg-Web.git
+cd SpineSeg-Web
+
 pnpm install
 ```
 
-### Development server
+---
+
+## Configuration
+
+Set the API URL in the environment files before building:
+
+| File | Usage |
+|---|---|
+| `src/environments/environment.ts` | Production |
+| `src/environments/environment.development.ts` | Development |
+
+Set `apiUrl` in each file to point to the appropriate backend instance.
+
+> No API keys or secrets are required to run the frontend locally.
+
+---
+
+## Running locally
 
 ```bash
 pnpm start
@@ -51,7 +101,9 @@ pnpm start
 
 Navigate to `http://localhost:4200/`. The app reloads automatically on file changes.
 
-### Build
+---
+
+## Build
 
 ```bash
 pnpm build
@@ -59,43 +111,46 @@ pnpm build
 
 Output is placed in `dist/spineseg/browser/`.
 
+---
+
 ## Deployment
 
-The frontend is deployed to Firebase Hosting. To redeploy:
+The frontend is deployed on **Firebase Hosting**. To redeploy:
 
 ```bash
 pnpm build
 firebase deploy
 ```
 
-The API is deployed separately on Railway. The API URL is configured via the `environment.ts` files.
+Live URL: `https://spineseg-a1a25.web.app`
 
-## Environment Configuration
+---
 
-| File                                          | Usage       |
-| --------------------------------------------- | ----------- |
-| `src/environments/environment.ts`             | Production  |
-| `src/environments/environment.development.ts` | Development |
+## Linting & Formatting
 
-Set `apiUrl` in each file to point to the appropriate backend.
+```bash
+pnpm lint          # ESLint
+pnpm lint:fix      # ESLint with auto-fix
+pnpm format        # Prettier (write)
+pnpm format:check  # Prettier (check only)
+pnpm check         # Prettier check + ESLint
+```
+
+---
 
 ## Path Aliases
 
 Configured in `tsconfig.json`:
 
-| Alias             | Path                   |
-| ----------------- | ---------------------- |
-| `@components/*`   | `src/app/components/*` |
-| `@services/*`     | `src/app/services/*`   |
-| `@interfaces/*`   | `src/app/interfaces/*` |
-| `@pages/*`        | `src/app/pages/*`      |
-| `@constants/*`    | `src/app/constants/*`  |
-| `@environments/*` | `src/environments/*`   |
+| Alias | Path |
+|---|---|
+| `@components/*` | `src/app/components/*` |
+| `@services/*` | `src/app/services/*` |
+| `@interfaces/*` | `src/app/interfaces/*` |
+| `@pages/*` | `src/app/pages/*` |
+| `@constants/*` | `src/app/constants/*` |
+| `@environments/*` | `src/environments/*` |
 
-## Linting & Formatting
+---
 
-```bash
-pnpm lint        # ESLint (flat config)
-```
-
-Prettier is configured for consistent formatting across TS and CSS files.
+*SpineSeg — Graduation Project, Computer Vision & Deep Learning*
