@@ -1,4 +1,4 @@
-import { Vertebra } from "./vertebra.interface";
+import { Vertebra } from './vertebra.interface';
 
 export interface InferenceResult {
   mask_img: string;

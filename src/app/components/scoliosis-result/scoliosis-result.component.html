@@ -1,19 +1,23 @@
-@if(hasData()) {
-<div class="angle-display">
-  <div class="angle-information">
-    <angle-indicator [style.width.px]="35" [class]="status()" [angle]="cobbAngle()!" />
-    <strong [class]="status()">{{ cobbAngle() | number:'1.0-1' }}°</strong>
-  </div>
-  <small [class]="sublabelClass()">cobb angle</small>
-</div>
-<div class="severity-scale">
-  @for (threshold of thresholds; track $index) {
-    <div class="threshold" [class.active]="threshold.status === status()">
-      <div class="tick"></div>
-      <small>{{threshold.label}}</small>
+@if (hasData()) {
+  <div class="angle-display">
+    <div class="angle-information">
+      <angle-indicator
+        [style.width.px]="35"
+        [class]="status()"
+        [angle]="cobbAngle()!"
+      />
+      <strong [class]="status()">{{ cobbAngle() | number: '1.0-1' }}°</strong>
     </div>
-  }
-</div>
+    <small [class]="sublabelClass()">cobb angle</small>
+  </div>
+  <div class="severity-scale">
+    @for (threshold of thresholds; track $index) {
+      <div class="threshold" [class.active]="threshold.status === status()">
+        <div class="tick"></div>
+        <small>{{ threshold.label }}</small>
+      </div>
+    }
+  </div>
 } @else {
   <div class="empty">
     <strong>no data</strong>

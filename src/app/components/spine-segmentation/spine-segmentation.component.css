@@ -19,6 +19,10 @@ canvas {
   object-fit: contain;
 }
 
+radial-pulse {
+  margin: 15px;
+}
+
 strong {
   color: var(--text-primary);
   font-weight: var(--font-weight-medium);

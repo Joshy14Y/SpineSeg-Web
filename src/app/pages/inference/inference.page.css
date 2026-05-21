@@ -41,7 +41,7 @@
   min-height: 0;
 }
 
-.div3 .panel-section:last-child{
+.div3 .panel-section:last-child {
   flex: 1;
 }
 
@@ -99,6 +99,22 @@ button span {
 .reset-btn:not(:disabled):hover {
   border-color: var(--color-warning);
   color: var(--color-warning);
+}
+
+.spinner {
+  flex-shrink: 0;
+  animation: spin 0.7s linear infinite;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 768px) {

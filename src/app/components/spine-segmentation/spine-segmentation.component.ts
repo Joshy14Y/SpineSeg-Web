@@ -9,10 +9,11 @@ import {
 } from '@angular/core';
 import { ID2LABEL } from '@constants/id2label.constant';
 import { coords } from '@interfaces/coords.interface';
+import { RadialPulseComponent } from '@components/radial-pulse/radial-pulse.component';
 
 @Component({
   selector: 'spine-segmentation',
-  imports: [],
+  imports: [RadialPulseComponent],
   templateUrl: './spine-segmentation.component.html',
   styleUrl: './spine-segmentation.component.css',
 })

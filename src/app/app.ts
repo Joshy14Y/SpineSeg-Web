@@ -1,10 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { InferencePage } from '@pages/inference/inference.page';
-import { AngleIndicatorComponent } from "@components/angle-indicator/angle-indicator.component";
+import { TopBarComponent } from '@components/top-bar/top-bar.component';
 
 @Component({
   selector: 'app-root',
-  imports: [InferencePage, AngleIndicatorComponent],
+  imports: [InferencePage, TopBarComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

@@ -31,12 +31,12 @@ export class InferencePage {
   protected hoveredId = signal<number | null>(null);
 
   protected inferenceBtnActive = computed(() => {
-    return !!this.file() && !this.result() && !this.isLoading()
-  })
+    return !!this.file() && !this.result() && !this.isLoading();
+  });
 
   protected resetBtnActive = computed(() => {
-    return !!this.file() && !this.isLoading()
-  })
+    return !!this.file() && !this.isLoading();
+  });
 
   protected annotatedImg = computed(() => {
     const img = this.result()?.annotated_img;

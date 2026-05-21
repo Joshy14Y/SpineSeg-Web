@@ -10,9 +10,10 @@
   --color-accent: #e6e8ec;
   --color-warning: #f5a524;
   --color-positive: #06b6d4;
-  --color-neutral: #e6e8ec;;
+  --color-neutral: #e6e8ec;
   --color-danger: #ef4444;
 
+  --font-logo: 'DM Mono', monospace;
   --font-primary: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 

@@ -23,7 +23,8 @@ import { octUpload } from '@ng-icons/octicons';
   },
 })
 export class UploadImageComponent {
-  private fileInput = viewChild.required<ElementRef<HTMLInputElement>>('fileInput');
+  private fileInput =
+    viewChild.required<ElementRef<HTMLInputElement>>('fileInput');
 
   protected isDragging = signal(false);
   protected previewUrl = signal<string | null>(null);
@@ -64,7 +65,7 @@ export class UploadImageComponent {
   }
 
   private handleFile(file: File) {
-    const objectURL = URL.createObjectURL(file)
+    const objectURL = URL.createObjectURL(file);
     this.previewUrl.set(objectURL);
     this.fileSelected.emit(file);
   }

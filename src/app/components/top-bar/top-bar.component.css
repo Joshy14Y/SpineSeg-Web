@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-secondary);
+  padding: 0 1rem;
+  height: 48px;
+}
+
+.logo {
+  color: var(--color-accent);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-xl);
+  font-family: var(--font-logo);
+}

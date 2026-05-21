@@ -7,9 +7,9 @@
   border-radius: var(--radius-md);
   background-color: var(--bg-secondary);
   padding: 10px;
+  min-width: 260px;
   min-height: 0;
   overflow: hidden;
-  min-width: 260px;
 }
 
 :host(.normal) {
@@ -75,8 +75,8 @@
 }
 
 .threshold.active .tick {
-  background-color: currentColor;
   box-shadow: 0 0 6px 1px currentColor;
+  background-color: currentColor;
 }
 
 .threshold small {

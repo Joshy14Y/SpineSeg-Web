@@ -1,7 +1,7 @@
 <div class="grid">
   <div class="div1">
     <h2>original image</h2>
-    <upload-image (fileSelected)="onFileSelected($event)"/>
+    <upload-image (fileSelected)="onFileSelected($event)" />
   </div>
   <div class="div2">
     <h2>spine segmentation</h2>
@@ -10,17 +10,26 @@
   <div class="div3">
     <div class="panel-section">
       <h2>scoliosis result</h2>
-      <scoliosis-result [cobbAngle]="cobbAngle()"/>
+      <scoliosis-result [cobbAngle]="cobbAngle()" />
     </div>
     <div class="panel-section">
-      <h2>instance stats</h2>
+      <h2>confidence per vertebra</h2>
       <instance-stats [instances]="instances()" />
     </div>
   </div>
   <div class="div4">
-    <button class="inference-btn" [disabled]="!inferenceBtnActive()" (click)="runInference()">
-      <span>run inference</span>
-      <ng-icon name="ionArrowForward" />
+    <button
+      class="inference-btn"
+      [disabled]="!inferenceBtnActive()"
+      (click)="runInference()"
+    >
+      @if (isLoading()) {
+        <span class="spinner"></span>
+        <span>running...</span>
+      } @else {
+        <span>run inference</span>
+        <ng-icon name="ionArrowForward" />
+      }
     </button>
     <button class="reset-btn" [disabled]="!resetBtnActive()" (click)="reset()">
       <ng-icon name="ionReload" />

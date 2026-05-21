@@ -12,10 +12,7 @@ export class InferenceService {
     const formData = new FormData();
     formData.append('image', file);
     return firstValueFrom(
-      this.http.post<InferenceResult>(
-        `${environment.apiUrl}/segment`,
-        formData
-      )
+      this.http.post<InferenceResult>(`${environment.apiUrl}/segment`, formData)
     );
   }
 }

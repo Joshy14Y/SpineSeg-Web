@@ -1,6 +1,6 @@
 import { Component, input, computed } from '@angular/core';
 import { COBB_ANGLE_THRESHOLDS } from '@constants/cobb-angle-thresholds.constant';
-import { AngleIndicatorComponent } from "@components/angle-indicator/angle-indicator.component";
+import { AngleIndicatorComponent } from '@components/angle-indicator/angle-indicator.component';
 import { DecimalPipe } from '@angular/common';
 
 @Component({
@@ -8,13 +8,11 @@ import { DecimalPipe } from '@angular/common';
   imports: [AngleIndicatorComponent, DecimalPipe],
   templateUrl: './scoliosis-result.component.html',
   styleUrl: './scoliosis-result.component.css',
-  host: {
-    '[class]': 'status()',
-  },
+  host: { '[class]': 'status()' },
 })
 export class ScoliosisResultComponent {
   public cobbAngle = input<number | null>(null);
-  protected readonly thresholds = COBB_ANGLE_THRESHOLDS
+  protected readonly thresholds = COBB_ANGLE_THRESHOLDS;
 
   protected hasData = computed(() => this.cobbAngle() !== null);
 

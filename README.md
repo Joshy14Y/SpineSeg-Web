@@ -1,59 +1,101 @@
 # SpineSeg
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+**SpineSeg** is a web-based medical imaging application for automated spine segmentation and scoliosis diagnosis. It processes X-ray images through a deep learning inference pipeline and visualizes segmentation results with per-segment diagnostics.
 
-## Development server
+Live: [https://spineseg-a1a25.web.app](https://spineseg-a1a25.web.app)
 
-To start a local development server, run:
+## Overview
 
-```bash
-ng serve
-```
+SpineSeg combines a U-Net based segmentation model with a clinical-grade Angular frontend. The app allows users to upload a spinal X-ray, run inference against a remote API, and inspect the segmentation results broken down by vertebral segment — including a scoliosis diagnosis and per-band signal statistics.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Stack
 
-## Code scaffolding
+| Layer    | Technology                                       |
+| -------- | ------------------------------------------------ |
+| Frontend | Angular 21, TypeScript                           |
+| Styling  | CSS custom properties, no framework              |
+| State    | Angular Signals (`signal`, `computed`, `effect`) |
+| Build    | Angular CLI, pnpm                                |
+| Deploy   | Firebase Hosting                                 |
+| API      | FastAPI on Railway                               |
+| Model    | U-Net (ONNX)                                     |
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Features
 
-```bash
-ng generate component component-name
-```
+- Upload spinal X-ray images
+- Client-side color mask rendering from NxM class ID matrix via offscreen canvas
+- Per-segment list with visual accent indicators
+- Diagnosis card with scoliosis assessment
+- Stats card with signal band statistics
+- Radial pulse indicator for inference status
+- Responsive clinical UI with dark theme and custom design tokens
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Getting Started
 
-```bash
-ng generate --help
-```
+### Prerequisites
 
-## Building
+- Node.js 20+
+- pnpm
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+### Install dependencies
 
 ```bash
-ng e2e
+pnpm install
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### Development server
 
-## Additional Resources
+```bash
+pnpm start
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Navigate to `http://localhost:4200/`. The app reloads automatically on file changes.
+
+### Build
+
+```bash
+pnpm build
+```
+
+Output is placed in `dist/spineseg/browser/`.
+
+## Deployment
+
+The frontend is deployed to Firebase Hosting. To redeploy:
+
+```bash
+pnpm build
+firebase deploy
+```
+
+The API is deployed separately on Railway. The API URL is configured via the `environment.ts` files.
+
+## Environment Configuration
+
+| File                                          | Usage       |
+| --------------------------------------------- | ----------- |
+| `src/environments/environment.ts`             | Production  |
+| `src/environments/environment.development.ts` | Development |
+
+Set `apiUrl` in each file to point to the appropriate backend.
+
+## Path Aliases
+
+Configured in `tsconfig.json`:
+
+| Alias             | Path                   |
+| ----------------- | ---------------------- |
+| `@components/*`   | `src/app/components/*` |
+| `@services/*`     | `src/app/services/*`   |
+| `@interfaces/*`   | `src/app/interfaces/*` |
+| `@pages/*`        | `src/app/pages/*`      |
+| `@constants/*`    | `src/app/constants/*`  |
+| `@environments/*` | `src/environments/*`   |
+
+## Linting & Formatting
+
+```bash
+pnpm lint        # ESLint (flat config)
+```
+
+Prettier is configured for consistent formatting across TS and CSS files.
